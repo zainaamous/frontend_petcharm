@@ -1,21 +1,14 @@
-import 'package:quick_social/models/models.dart';
+import 'story.dart';
 
-class UserStory {
-  final User owner;
-  final List<Story> stories;
+class UserStory extends Story {
+  final String userId;
+  final String username;
 
-  const UserStory({
-    required this.owner,
-    required this.stories,
-  });
-
-  static List<UserStory> dummyUserStories = List.generate(
-    User.dummyUsers.length,
-    (index) {
-      return UserStory(
-        owner: User.dummyUsers[index],
-        stories: Story.generateDummyStories(),
-      );
-    },
-  );
+  UserStory({
+    required String id,
+    required String title,
+    required String imageUrl,
+    required this.userId,
+    required this.username,
+  }) : super(id: id, title: title, imageUrl: imageUrl);
 }

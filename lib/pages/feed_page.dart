@@ -1,78 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:quick_social/models/models.dart';
-import 'package:quick_social/widgets/widgets.dart';
+import 'package:quick_social/widgets/post_card.dart';
+import 'package:quick_social/widgets/custom_animations.dart';
 
 class FeedPage extends StatelessWidget {
-  const FeedPage({super.key});
-
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
     return Scaffold(
-      appBar: _appBar(theme),
-      body: ResponsivePadding(
-        child: ListView(
-          children: [
-            SizedBox(
-              height: 110,
-              child: ListView.builder(
-                itemCount: UserStory.dummyUserStories.length,
-                scrollDirection: Axis.horizontal,
-                shrinkWrap: true,
-                itemBuilder: (_, index) {
-                  return Padding(
-                    padding: EdgeInsets.only(
-                      left: index == 0 ? 4 : 0,
-                      right: index == UserStory.dummyUserStories.length - 1
-                          ? 4
-                          : 0,
-                    ),
-                    child: UserStoryTile(index: index),
-                  );
-                },
-              ),
-            ),
-            ListView.separated(
-              itemCount: Post.dummyPosts.length,
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              separatorBuilder: (context, index) => const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16),
-                child: Divider(height: 4),
-              ),
-              itemBuilder: (context, index) {
-                return PostCard(post: Post.dummyPosts[index]);
-              },
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
-  AppBar _appBar(ThemeData theme) {
-    return AppBar(
-      automaticallyImplyLeading: false,
-      flexibleSpace: ResponsivePadding(
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const AppLogo(),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.send_sharp,
-                    color: theme.colorScheme.primary,
-                  ),
-                ),
-              ],
-            ),
+      appBar: AppBar(
+        title: Text('Feed', style: TextStyle(color: Colors.white)),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.search, color: Colors.white),
+            onPressed: () {},
           ),
-        ),
+          IconButton(
+            icon: Icon(Icons.notifications, color: Colors.white),
+            onPressed: () {},
+          ),
+        ],
+      ),
+      body: ListView.builder(
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return CustomFadeIn(
+            child: PostCard(
+              username: 'User $index',
+              content: 'This is the content of post $index. Here is some additional text to simulate a longer post content.',
+              time: '2h ago',
+              imageUrl: 'https://via.placeholder.com/150',
+            ),
+          );
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add),
+        backgroundColor: Theme.of(context).accentColor,
       ),
     );
   }
