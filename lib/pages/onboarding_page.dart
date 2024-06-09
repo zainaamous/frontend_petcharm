@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quick_social2/pages/login_page.dart';
+import 'package:petcharm_frontend_enh/pages/login_page.dart';
 
 class OnboardingPage extends StatelessWidget {
   @override

@@ -24,7 +24,7 @@
 // }
 
 import 'package:flutter/material.dart';
-import 'package:quick_social2/pages/onboarding_page.dart';
+import 'package:petcharm_frontend_enh/pages/onboarding_page.dart';
 
 void main() {
   runApp(MyApp());

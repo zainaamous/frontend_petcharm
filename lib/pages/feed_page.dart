@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quick_social/widgets/post_card.dart';
-import 'package:quick_social/widgets/custom_animations.dart';
+import 'package:petcharm_frontend_enh/widgets/post_card.dart';
+import 'package:petcharm_frontend_enh/widgets/custom_animations.dart';
 
 class FeedPage extends StatelessWidget {
   @override

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:quick_social/common/common.dart';
-import 'package:quick_social/models/models.dart';
-import 'package:quick_social/pages/pages.dart';
-import 'package:quick_social/widgets/widgets.dart';
+import 'package:petcharm_frontend_enh/common/common.dart';
+import 'package:petcharm_frontend_enh/models/models.dart';
+import 'package:petcharm_frontend_enh/pages/pages.dart';
+import 'package:petcharm_frontend_enh/widgets/widgets.dart';
 
 import 'package:flutter/material.dart';
 
